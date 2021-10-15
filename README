@@ -1,0 +1,92 @@
+#INST 326 Homework 2 
+Introduction 
+Read multiple works of literature to create an index of the words used in each work in the form of a dictionary and popularity index. Each of these works exist as a text file in a folder within the same directory as a python script named data 
+Your script should contain two classes Book and BookShelf and at least one function that exist outside of any class. At the end of the script have an `if **name**= “**main**”:` Statement
+## remove_punctuation()
+**Functionality**:
+	Takes a string and returns a string containing the lower cased alphabetical characters. If argument is not a string then a TypeError should be raised 
+**Parameters**:
+	**word**: input string that contains a words that may contain non-alphabetical character 
+**Returns**:
+	**word_string**: A lowercase string containing only the lowercased alphabetical of the parameter 
+## Book Class
+**Functionality**:
+	Stores text data for a single book 
+**Attributes**
+	**Words** (list): list of individual words in the book. Elements on the list can be repeating
+### Methods
+`__init__()`
+**Functionality:** 
+	Should open the file for reading and set the words attribute to a list containing all words in the file split on spaces
+	All non-alphabetical characters should be removed
+	It should also account and remove none 
+	Set the result to the word attribute 
+**Parameters:** 
+	- **self** 
+	- **path** - path of file to read 
+**Returns:**
+	None
+`unique_words()`
+**Functionality:**
+	Returns a set created from the words attributes 
+**Parameters:** 
+	- **self** 
+**Returns**
+	**word_attributes** (set)
+## BookShelf Class
+**Functionality**:
+	Stores the index for words in books as they are provided 
+**Attributes**:
+	- i**ndex**: Dictionary representing an index of the words of a book where the keys are the unique words found and the values are string elements that represent the name of the book in which that word is found 
+	- **popularity_index**: Dictionary based on index attribute which itself an index where the keys are integers that represent how many books a word is found in and the values are the words that correspond to ths count 
+	Should start empty and populate after find_popularity() is invoked
+### Methods 
+**`init**()`
+**Functionality**
+	Set the index attribute to an empty dic. 
+	set the popularity_index to an empty dic
+**parameters**
+	- Self
+`add_books()`
+**Functionality**
+	Create a book object from the text name that is passed 
+	Invoke the unique_words() method to return unique words in that work 
+	Save the returned value to add words from this text and index those words in the index attribute. 
+	Should only add to the index, it should not delete or remove 
+**Parameters**
+	- Self 
+	- Text 
+**Returns**
+	None
+`find_popularity()`
+**Functionality**
+	Should reset the popularity_index attribute
+	it should populate it by iterating over the items of the index attribute so that it becomes an index where the keys are integers that represent how many books a word is found in and the values are the words that correspond to that count 
+**Parameters**
+	- Self
+**Return**
+	None
+## Main()
+**Functionality**
+	Create an instance of bookshelf. 
+	Use each path in the library list to invoke the add_books method on that bookshelf instance. 
+	Invoke find_popularity() 
+**Parameters**
+	**Library** (list): list of strings where the strings are path to text files which are books on machine 
+**Returns**
+	As a tuple: 
+	The index attribute of your bookshelf
+	Length of the index of your bookshelf
+	Popularity_index attribute of your bookshelf 
+## parse_args()
+**Functionality**
+	This function will create an instance of an ArgumentParser object and assign one argument to it named books. 
+	This argument should be of type str. 
+	This argument should be flagged so that it accepts any number of command line arguments (but at least one) and create a list of these arguments. 
+**Parameters**
+	- args_list: A list of command line arguments. Can be of any length 
+**Returns**
+	The ArgumentParser Object 
+## `if **name** == “**main**”:`
+Should create a list of strings which are the paths to the text files you will be indexing 
+	Should come from the returned value of the `argparse` function
