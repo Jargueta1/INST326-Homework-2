@@ -90,3 +90,15 @@ Your script should contain two classes Book and BookShelf and at least one funct
 ## `if **name** == “**main**”:`
 Should create a list of strings which are the paths to the text files you will be indexing 
 	Should come from the returned value of the `argparse` function
+    
+----
+Doctstring to use 
+
+         """
+        Goal:
+            initializes attributes and sets them to empty dic
+        Args:
+            
+        Returns:
+            None
+        """
