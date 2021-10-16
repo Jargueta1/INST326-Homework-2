@@ -21,6 +21,12 @@ Class Book:
         
         ## Make for each for extracting words and removing punctuation 
         words = [] 
+        with open(path,'r') as f:
+            content = f.readlines
+            for line in contents:
+                for w in line:    
+                    words.append(remove_punctuation(w))    
+            
         self.words = words ## needs to change this to only include alphabetical 
         
     def remove_punctuation(word):
@@ -30,11 +36,10 @@ Class Book:
         Args:
             words(String): words with punctuation
         Returns:
-            words_str(string): same word without punctuation
+            (string): same word without punctuation and lower case 
             """
-        strin_value = "this,is,a_try123*"
-        s = re.sub(r'[^a-zA-Z]', '', string_value)
-        print(s)
+        word = re.sub(r'[^a-zA-Z]', '', word)
+        return word.lower()
 
     def unique_words(self):
         """

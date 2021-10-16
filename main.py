@@ -5,6 +5,8 @@ Date created: 10_14_21
 Date updated:10_14_21
 """
 import re 
+import Book from book 
+import Bookshelf from bookshelf
 
 def main(libray): 
     """
@@ -21,6 +23,8 @@ def main(libray):
 	        Length of the index of your bookshelf
 	        Popularity_index attribute of your bookshelf 
     """
+    book_one = Book("/dataTry/try1.txt")
+    print(book_one.words)
     
 def parse_args(args_list):
     """
@@ -39,9 +43,7 @@ def parse_args(args_list):
     try:
         args = parse_args(sys.argv[1:])
     except ValueError as e:
-        sys.exit(str(e))
+         sys.exit(str(e))
 """
 
-strin_value = "this,is,a_try123*"
-s = re.sub(r'[^a-zA-Z]', '', string_value)
-print(s)
+main("this")
