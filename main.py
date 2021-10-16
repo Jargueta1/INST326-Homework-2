@@ -5,8 +5,9 @@ Date created: 10_14_21
 Date updated:10_14_21
 """
 import re 
-import Book from book 
-import Bookshelf from bookshelf
+import book as b
+import bookshelf as bs 
+import os,glob
 
 def main(libray): 
     """
@@ -23,9 +24,20 @@ def main(libray):
 	        Length of the index of your bookshelf
 	        Popularity_index attribute of your bookshelf 
     """
-    book_one = Book("/dataTry/try1.txt")
-    print(book_one.words)
+
+    ## book_one = b.Book("dataTry/try1.txt")
     
+
+    shelf = bs.Bookshleft()
+    paths = [ "data/don_quixote.txt", "data/alice_wonderland.txt", "data/frederick_douglass.txt" , "data/iliad.txt" ,"data/peter_pan.txt" ,"data/pride_prejudice.txt", "data/republic.txt" ,"data/sherlock_holms.txt" ,"data/wizard_of_oz.txt"]
+    for filename in paths:
+        shelf.addBooks(filename)
+
+    shelf.find_popularity()
+    shelf._test()
+
+
+
 def parse_args(args_list):
     """
     Goal:

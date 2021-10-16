@@ -5,7 +5,10 @@ Date created: 10_14_21
 Date updated:10_14_21
 """
 
-Class Bookshleft:
+from os import PRIO_PGRP
+import book as b
+
+class Bookshleft:
 
     def __init__(self):
         """
@@ -30,6 +33,14 @@ Class Bookshleft:
         Returns:
             None
         """
+        book = b.Book(text)
+
+        for w in book.unique_words():
+            if w not in  self.index:
+                self.index[w] = []
+        
+            self.index[w].append(text)
+
     def find_popularity(self):
         """
         Goal:
@@ -41,3 +52,17 @@ Class Bookshleft:
         Returns:
             None
         """
+        self.popularity_index = {}
+        
+        for key in self.index:
+            self.popularity_index[key] = len([count for count in self.index[key] ])
+
+    def _test(self):
+        max = 0
+        for value in self.popularity_index:
+            new = self.popularity_index[value]
+
+            if new > max:
+                max = new
+        print(max)
+            

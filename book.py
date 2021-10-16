@@ -4,9 +4,10 @@ Assignment: Homework 2
 Date created: 10_14_21
 Date updated:10_14_21
 """
+from enum import unique
 import re 
 
-Class Book:
+class Book:
 
     def __init__(self, path):
         """
@@ -18,17 +19,19 @@ Class Book:
         Returns:
             None
         """
-        
         ## Make for each for extracting words and removing punctuation 
         words = [] 
         with open(path,'r') as f:
-            content = f.readlines
-            for line in contents:
-                for w in line:    
-                    words.append(remove_punctuation(w))    
+            content = f.readlines()
+           
+            for line in content:
+                newWords = line.split(" ")
+                for w in newWords :
+                    if(Book.remove_punctuation(w)) !="":
+                        words.append(Book.remove_punctuation(w))    
             
         self.words = words ## needs to change this to only include alphabetical 
-        
+
     def remove_punctuation(word):
         """
         Goal:
@@ -50,5 +53,10 @@ Class Book:
         Returns:
             word_attribute(set): contains all the uniques words from the book
         """
-        pass
+        unique_words = set()
+        
+        for w in self.words:
+            unique_words.add(w)
+
+        return unique_words
         
