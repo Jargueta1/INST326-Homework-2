@@ -4,6 +4,7 @@ Assignment: Homework 2
 Date created: 10_14_21
 Date updated:10_14_21
 """
+import re 
 
 Class Book:
 
@@ -31,7 +32,9 @@ Class Book:
         Returns:
             words_str(string): same word without punctuation
             """
-        pass
+        strin_value = "this,is,a_try123*"
+        s = re.sub(r'[^a-zA-Z]', '', string_value)
+        print(s)
 
     def unique_words(self):
         """

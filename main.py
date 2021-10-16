@@ -8,7 +8,7 @@ def main(libray):
     """
     Goal:
         Create an instance of bookshelf. 
-        Use each path in the library list to 
+        Use each path in the library list
         invoke the add_books method on that bookshelf instance. 
 	    Invoke find_popularity() 
     Args:
