@@ -4,6 +4,8 @@ Assignment: Homework 2
 Date created: 10_14_21
 Date updated:10_14_21
 """
+import re 
+
 def main(libray): 
     """
     Goal:
@@ -32,8 +34,14 @@ def parse_args(args_list):
         ArgumentParser Object 
             """
     
-if __name__ == "__main__":
+"""
+            if __name__ == "__main__":
     try:
         args = parse_args(sys.argv[1:])
     except ValueError as e:
         sys.exit(str(e))
+"""
+
+strin_value = "this,is,a_try123*"
+s = re.sub(r'[^a-zA-Z]', '', string_value)
+print(s)
