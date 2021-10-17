@@ -6,7 +6,6 @@ Date updated:10_14_21
 """
 import book as b
 from argparse import ArgumentParser
-import re
 import sys
 
 class Bookshleft:
@@ -58,15 +57,6 @@ class Bookshleft:
         for key in self.index:
             self.popularity_index[key] = len([count for count in self.index[key] ])
 
-    def _test(self):
-        max = 0
-        for value in self.popularity_index:
-            new = self.popularity_index[value]
-
-            if new > max:
-                max = new
-        print(max)
-            
 def main(libray): 
     """
     Goal:
@@ -88,8 +78,8 @@ def main(libray):
         shelf.addBooks(filename)
 
     shelf.find_popularity()
-    shelf._test()
-
+    
+    return shelf.index, len(shelf.index),shelf.poularity_index
 
 
 def parse_args(args_list):

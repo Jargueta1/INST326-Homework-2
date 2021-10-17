@@ -5,7 +5,6 @@ Date created: 10_14_21
 Date updated:10_14_21
 """
 import re 
-
 class Book:
 
     def __init__(self, path):
