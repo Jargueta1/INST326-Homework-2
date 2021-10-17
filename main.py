@@ -4,10 +4,10 @@ Assignment: Homework 2
 Date created: 10_14_21
 Date updated:10_14_21
 """
-import re 
-import book as b
+from argparse import ArgumentParser
+import re
+import sys
 import bookshelf as bs 
-import os,glob
 
 def main(libray): 
     """
@@ -24,13 +24,9 @@ def main(libray):
 	        Length of the index of your bookshelf
 	        Popularity_index attribute of your bookshelf 
     """
-
-    ## book_one = b.Book("dataTry/try1.txt")
     
-
     shelf = bs.Bookshleft()
-    paths = [ "data/don_quixote.txt", "data/alice_wonderland.txt", "data/frederick_douglass.txt" , "data/iliad.txt" ,"data/peter_pan.txt" ,"data/pride_prejudice.txt", "data/republic.txt" ,"data/sherlock_holms.txt" ,"data/wizard_of_oz.txt"]
-    for filename in paths:
+    for filename in libray:
         shelf.addBooks(filename)
 
     shelf.find_popularity()
@@ -49,13 +45,19 @@ def parse_args(args_list):
     Returns:
         ArgumentParser Object 
             """
-    
-"""
-            if __name__ == "__main__":
-    try:
-        args = parse_args(sys.argv[1:])
-    except ValueError as e:
-         sys.exit(str(e))
-"""
+    parser = ArgumentParser()
+    parser.add_argument("books", type = str)
+    args = parser.parse_args(args_list)
+    return args
 
-main("this")
+    
+
+if __name__ == "__main__":
+    try:
+        args = parse_args(sys.argv[1:])
+        
+    except ValueError as e:
+        sys.exit(str(e))
+    print("this")
+    print(args.books)
+    main(args.books)
