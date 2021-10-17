@@ -79,7 +79,7 @@ def main(libray):
 
     shelf.find_popularity()
     
-    return shelf.index, len(shelf.index),shelf.poularity_index
+    return shelf.index, len(shelf.index),shelf.popularity_index
 
 
 def parse_args(args_list):
