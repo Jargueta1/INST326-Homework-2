@@ -58,6 +58,4 @@ if __name__ == "__main__":
         
     except ValueError as e:
         sys.exit(str(e))
-    print("this")
-    print(args.books)
     main(args.books)
