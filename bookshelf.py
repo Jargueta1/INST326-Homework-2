@@ -113,8 +113,6 @@ def parse_args(args_list):
 if __name__ == "__main__":
     try:
         args = parse_args(sys.argv[1:])
-        
+        main(args.books)
     except ValueError as e:
         sys.exit(str(e))
- 
-    main(args.books)

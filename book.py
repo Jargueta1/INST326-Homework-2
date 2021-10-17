@@ -26,22 +26,10 @@ class Book:
             for line in content:
                 newWords = line.split(" ")
                 for w in newWords :
-                    if(Book.remove_punctuation(w)) !="":
-                        words.append(Book.remove_punctuation(w))    
+                    if(remove_punctuation(w)) !="":
+                        words.append(remove_punctuation(w))    
             
         self.words = words ## needs to change this to only include alphabetical 
-
-    def remove_punctuation(word):
-        """
-        Goal:
-            removes all punctuation from the a string 
-        Args:
-            words(String): words with punctuation
-        Returns:
-            (string): same word without punctuation and lower case 
-            """
-        word = re.sub(r'[^a-zA-Z]', '', word)
-        return word.lower()
 
     def unique_words(self):
         """
@@ -58,4 +46,15 @@ class Book:
             unique_words.add(w)
 
         return unique_words
-        
+
+def remove_punctuation(word):
+    """
+    Goal:
+        removes all punctuation from the a string 
+    Args:
+        words(String): words with punctuation
+    Returns:
+        (string): same word without punctuation and lower case 
+        """
+    word = re.sub(r'[^a-zA-Z]', '', word)
+    return word.lower()
